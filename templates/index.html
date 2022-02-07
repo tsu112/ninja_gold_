@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
+    <title>Ninja Gold</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome to Ninja Gold!</h1>
+      <p>Your gold: {{session['total_gold']}}</p>
+      <a href="/reset">Reset</a>
+      <div class="d-flex justify-content-around">
+        <!-- ***************************************************Farm Form -->
+        <div class="card bg-primary text-white">
+          <div class="card-body p-5" style="width: 18rem">
+            <form action="/process_money" method="post">
+              <h2>Farm</h2>
+              <p>(earn 10-20 gold)</p>
+              <input type="hidden" name="building" value="farm" />
+              <input type="submit" value="Find Gold!" />
+            </form>
+          </div>
+        </div>
+        <!-- *****************************************************Cave Form -->
+        <div class="card bg-primary text-white">
+          <div class="card-body p-5" style="width: 18rem">
+            <form action="/process_money" method="post">
+              <h2>Cave</h2>
+              <p>(earn 5-10 gold)</p>
+              <input type="hidden" name="building" value="cave" />
+              <input type="submit" value="Find Gold!" />
+            </form>
+          </div>
+        </div>
+        <!-- ****************************************************House Form -->
+        <div class="card bg-primary text-white">
+          <div class="card-body p-5" style="width: 18rem">
+            <form action="/process_money" method="post">
+              <h2>House</h2>
+              <p>(earn 2-5 gold)</p>
+              <input type="hidden" name="building" value="house" />
+              <input type="submit" value="Find Gold!" />
+            </form>
+          </div>
+        </div>
+        <!-- ***************************************************Casino Form -->
+        <div class="card bg-primary text-white">
+          <div class="card-body p-5" style="width: 18rem">
+            <form action="/process_money" method="post">
+              <h2>Casino</h2>
+              <p>(earn/take 0-50 gold)</p>
+              <input type="hidden" name="building" value="casino" />
+              <input type="submit" value="Find Gold!" />
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- ***********************************************************Activities -->
+      <div class="border border-dark">
+        <p>Activities</p>
+        {{messages |safe}}
+      </div>
+    </div>
+  </body>
+</html>
